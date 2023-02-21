@@ -1,0 +1,40 @@
+## declaramos variables y listas para luego ser utilizadas en los bucles
+#ejecutamos el bucle while 
+#preguntamos al usuario que introduzca una letra para realizar una accion determinaad paar cada letra
+#imprimimos las listas
+
+print("depositar d o retirar r")
+guardado = 10_000
+salir = ""
+depositos = []
+retiros = []
+fin_uno = ""
+fin_dos = ""
+
+
+
+
+while salir != "si":
+    eleccion = input("letra pedida: ")
+    if eleccion == "d" or eleccion == "D":
+        print("depositos")
+        while fin_uno != "no":
+            deposito = float(input("cantidad a depositar: "))
+            depositos.append(deposito)
+            fin_uno = input("desea realizar otro deposito? : ")
+    elif eleccion == "r" or eleccion == "R":
+        print("retiros")
+        resta = 0
+        while fin_dos != "no":
+            retiro = float(input("cantidad a retirar: "))
+            retiros.append(retiro)
+            fin_dos = input("desea realizar otro retiro? : ")
+    else:
+        print("no cumple la condicion")
+
+
+    salir = input("salir? : ")
+
+for x in retiros:
+    depositos.append(x)
+    print(x)
