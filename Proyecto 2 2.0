@@ -1,0 +1,61 @@
+## 2.0
+print("introduce el saldo guardado")
+saldo = float(input("saldo guardado: "))
+print(f"genial su saldo es de {saldo:.2f} ahora introduzca la letra 'd' para depositos o la letra 'r' para retiros")
+letra = ""
+depositos = []
+retiros = []
+continuar = ""
+while continuar != "no":
+    letra = input("letra  'd' deposito - 'r' retiro : ")
+    if letra == "d" or letra == "D":
+        print("depositos:")
+        volver_uno = ""
+        while volver_uno != "no":
+            deposito = float(input("monto  depositar: "))
+            depositos.append(deposito)
+            volver_uno = input("desea hacer otro deposito? 'si' - 'no' : ")
+    elif letra == "r" or letra == "R":
+        print("retiros:")
+        volver_dos = ""
+        while volver_dos != "no":
+            retiro = float(input("monto a retirar: "))
+            retiros.append(retiro)
+            volver_dos = input("desea hacer otro retiro?  'si' - 'no' : ")
+    else:
+        print("no introduciste el valor que pedimos")
+
+    continuar = input("desea hacer otra operación ?  'si' - 'no': ")
+
+
+
+print("que tipo de operacion realizo? \nintroduzca el numero '1' para depositos y retiros, \nintroduzca numero '2' para solo depositos, \nintroduzca numero '3' para slo retiros")
+numero = input("numero: ")
+
+if numero == "1" or numero == "uno":
+    z_1 = depositos + retiros
+    x_1 = sum(depositos)
+    y_1 = sum(retiros)
+    suma_media_1 = (x_1 - y_1) / len(z_1)
+    suma_saldo_1 = (x_1 - y_1) + saldo
+    print(f"la media es: {suma_media_1:.2f}")
+    print(f"el numero de transacciones es: {len(z_1)}")
+    print(f"el saldo restante en tu cuenta es: {suma_saldo_1:.2f}")
+elif numero == "2" or numero == "dos":
+    z_2 = saldo + sum(depositos)
+    print(f"saldo restante {z_2:.2f}")
+    x_2 = sum(depositos) / len(depositos)
+    print(f"la media es: {x_2:.2f}")
+    y_2 = len(depositos)
+    print(f"el numero de transacciones es: {y_2}")
+elif numero == "3" or numero == "tres":
+    z_3 = saldo - sum(retiros)
+    print(f"saldo restante: {z_3}")
+    x_3 = sum(retiros) / len(retiros)
+    print(f"la media es: {x_2}")
+    y_3 = len(retiros)
+    print(f"el numero de transacciones es: {y_3}")
+
+else:
+    print("no has introducido el numero pedido")
+print("fin de la aplicacion")
